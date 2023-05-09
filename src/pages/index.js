@@ -34,10 +34,10 @@ export default function Home({ toggleTheme }) {
           <h3 className="text-2xl md:text-3xl font-bold mb-6 ">Showcase Projects</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mx-0 md:mx-10">
             {[
-              { title: 'KnowTools', description: 'AI powered tools utilizing Open AI', githubLink: 'https://github.com/brandonhann/knowtools', link: 'https://know.tools/' },
+              { title: 'MintyGen', description: 'MintyGen is an innovative NFT generator app that allows you to easily create unique and stunning NFTs. With our user-friendly web compiler and powerful engine, you can customize various aspects of your NFTs with just a few clicks.', githubLink: 'https://github.com/brandonhann/mintygen-engine', link: 'https://mintygen.com' },
               { title: 'Georgian College Open Concert', description: 'My COMM 1016 final project is a single responsive webpage promoting and providing information about the Global Rhythms Open Concert Night at Georgian College, an event I created to showcase student talent, creativity, and cultural diversity.', githubLink: 'https://github.com/brandonhann/gc-open-concert-night', link: 'https://gc-concert.vercel.app/' },
-              { title: 'Sacred Geometry Generator', description: 'Generate random shapes.', githubLink: 'https://github.com/brandonhann/sacred-geometry-generator', link: 'https://sacred-geometry-generator.vercel.app/' },
-              { title: 'Project 4', description: 'A brief description of Project 4.', githubLink: 'https://github.com/brandonhann/', link: 'https://sacred-geometry-generator.vercel.app/' },
+              { title: 'KnowTools', description: 'Various AI powered tools utilizing Open AI API.', githubLink: 'https://github.com/brandonhann/knowtools', link: 'https://know.tools/' },
+              { title: 'Project 4', description: 'A brief description of Project 4.', githubLink: 'https://github.com/brandonhann/', link: 'https://test.vercel.app/' },
             ].map((project, index) => (
               <div
                 key={index}
