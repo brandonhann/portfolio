@@ -28,7 +28,6 @@ export default function App() {
     } else if (component === 'Contact') {
       contactRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-
   }
 
   return (
@@ -65,13 +64,13 @@ export default function App() {
             </nav>
           </header>
           <footer className='text-center p-4 my-auto'>
-            <p className='opacity-50'>&copy; 2023 Brandon Hann</p>
+            <p className='opacity-40'>&copy; 2023 Brandon Hann</p>
           </footer>
         </aside>
 
         <button className={`md:hidden fixed top-0 right-0 m-4 p-2 rounded-full bg-gray-500 text-zinc-50 ${showAside ? 'hidden' : 'block'}`} onClick={() => setShowAside(true)}>Menu</button>
 
-        <div className="overflow-y-scroll">
+        <div className="overscroll-none overflow-hidden">
           <About ref={aboutRef} />
           <Projects ref={projectsRef} />
           <Contact ref={contactRef} />
