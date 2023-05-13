@@ -3,7 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Text } from 'troika-three-text';
 
 const skills = [
-    'JavaScript', 'Python', 'Java', 'C#', 'C++', 'ReactJS', 'TypeScript',
+    'JavaScript', 'Python', 'Java', 'C#', 'C++', 'ReactJS', 'ThreeJS',
     'HTML5', 'CSS3', 'Tailwind', 'PHP', 'Solidity', 'Arduino', 'Lua', 'SQL',
 ];
 
@@ -59,16 +59,24 @@ const TextMesh = ({ text, position }) => {
 
 const About = forwardRef((props, refProp) => {
     return (
-        <div ref={refProp} className="p-4 bg-gradient-to-b from-zinc-600 to-zinc-700 text-zinc-50 flex flex-col items-left justify-center w-full h-screen">
+        <div ref={refProp} className="p-4 bg-gradient-to-b from-zinc-600 to-zinc-700 text-zinc-50 flex flex-col items-left justify-center w-full min-h-screen">
             <div className="fade-in flex flex-col md:flex-row">
                 <div className="p-4 rounded-lg w-full md:w-1/2">
-                    <h1 className="text-xl md:text-2xl text-left">Welcome to my portfolio</h1>
-                    <h2 className="text-transparent font-bold bg-clip-text bg-gradient-to-b from-cyan-500 to-cyan-200 text-4xl md:text-7xl text-center">Brandon Hann</h2>
-                    <h3 className="text-xl md:text-2xl text-right">Web Developer</h3>
-                    <p className="typewriter mt-4">Test randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore </p>
+                    <div className='border-b border-zinc-400 pb-4'>
+                        <h1 className="text-lg md:text-2xl text-left italic">Welcome to my portfolio</h1>
+                        <h2 className="text-transparent font-bold bg-clip-text bg-gradient-to-b from-cyan-500 to-cyan-200 text-4xl md:text-7xl text-center">Brandon Hann</h2>
+                        <h3 className="text-lg md:text-2xl text-right italic">Web Developer</h3>
+                    </div>
+                    <div className='typewriter first-letter:text-xl'>
+                        <p className="mt-4">
+                            As an accomplished <span className='text-cyan-200'>front-end developer</span>, I possess experience in designing and implementing user interfaces that are visually appealing and intuitive to navigate, with a specific focus on utilizing <span className='text-cyan-200'>ReactJS</span>. Furthermore, I have sharpened my expertise in <span className='text-cyan-200'>Solidity</span>, blockchain, and web3 development, which has allowed me to proficiently develop decentralized applications that are secure and reliable.
+                        </p>
+                        <p className='mt-4'>
+                            I study computer programming at <span className='text-cyan-200'>Georgian College</span> and work as a Field Technician Team Lead for a Retail AI company, gaining practical insights on coding and technology's role in business optimization. This real-world experience complements my academic studies and enhances my skills and industry understanding.
+                        </p>
+                    </div>
                 </div>
-                <div className="p-4 rounded-lg mx-auto h-full w-full md:w-1/2">
-
+                <div className="p-4 rounded-lg mx-auto">
                     <Canvas>
                         {skills.map((language, index) => (
                             <TextMesh
@@ -82,7 +90,6 @@ const About = forwardRef((props, refProp) => {
                             />
                         ))}
                     </Canvas>
-
                 </div>
             </div>
         </div >

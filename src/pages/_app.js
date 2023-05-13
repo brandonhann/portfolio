@@ -2,9 +2,9 @@ import '../styles/globals.css';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
-import About from "./about";
-import Projects from "./projects"
-import Contact from "./contact"
+import About from "../components/about";
+import Projects from "../components/projects"
+import Contact from "../components/contact"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { faLinkedin, faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons"
@@ -68,9 +68,10 @@ export default function App() {
           </footer>
         </aside>
 
-        <button className={`md:hidden fixed top-0 right-0 m-4 p-2 rounded-full bg-gray-500 text-zinc-50 ${showAside ? 'hidden' : 'block'}`} onClick={() => setShowAside(true)}>Menu</button>
+        {/* TODO issue - can still click menu behind aside */}
+        <button className={`z-50 md:hidden fixed top-0 right-0 m-4 p-2 rounded-full bg-gray-500 text-zinc-50 ${showAside ? 'hidden' : 'block'}`} onClick={() => setShowAside(true)}>Menu</button>
 
-        <div className="overscroll-none overflow-hidden">
+        <div className="overflow-y-scroll md:overscroll-none md:overflow-hidden">
           <About ref={aboutRef} />
           <Projects ref={projectsRef} />
           <Contact ref={contactRef} />
