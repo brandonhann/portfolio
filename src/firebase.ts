@@ -1,3 +1,4 @@
+import './config';
 import { initializeApp, getApps } from "firebase/app";
 
 // Your web app's Firebase configuration
@@ -10,6 +11,8 @@ const firebaseConfig = {
     appId: process.env.APP_ID,
     measurementId: process.env.MEASUREMENT_ID
 };
+
+console.log(firebaseConfig);
 
 // Check if there are no initialized apps before initializing Firebase
 if (!getApps().length) {
