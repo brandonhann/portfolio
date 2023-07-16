@@ -7,15 +7,16 @@ import "./index.css";
 const Content = ({ selected }: { selected: string }) => {
     switch (selected) {
         case "Blog":
-            return <Blog />;
+            return <div className="transition-all duration-500"><Blog /></div>;
         case "About":
-            return <About />;
+            return <div className="transition-all duration-500"><About /></div>;
         case "Projects":
-            return <Projects />;
+            return <div className="transition-all duration-500"><Projects /></div>;
         default:
-            return <About />;
+            return <div className="transition-all duration-500"><About /></div>;
     }
 };
+
 
 const App: React.FC = () => {
     const [selected, setSelected] = useState("About");
@@ -25,39 +26,36 @@ const App: React.FC = () => {
         <div className="bg flex flex-col min-h-screen">
             <nav>
                 <div className="flex justify-around">
-                   <button
-                        className={`p-2 text-xl w-1/2 transition-colors duration-500 ${
-                            selected === "Blog"
-                                ? "bg-gray-900 text-gray-50 delay-110"
-                                : "bg-transparent text-gray-900 delay-110"
-                        }`}
+                    <button
+                        className={`p-1 text-xl w-1/2 transition-colors duration-500 ${selected === "Blog"
+                            ? "bg-gray-900 text-gray-50 delay-110"
+                            : "bg-transparent text-gray-900 delay-110"
+                            }`}
                         onClick={() => setSelected("Blog")}
                     >
-                    Blog
+                        Blog
                     </button>
                     <button
-                        className={`p-2 text-xl w-1/2 transition-colors duration-500 ${
-                            selected === "About"
-                                ? "bg-gray-900 text-gray-50 delay-110"
-                                : "bg-transparent text-gray-900 delay-110"
-                        }`}
+                        className={`p-1 text-xl w-1/2 transition-colors duration-500 ${selected === "About"
+                            ? "bg-gray-900 text-gray-50 delay-110"
+                            : "bg-transparent text-gray-900 delay-110"
+                            }`}
                         onClick={() => setSelected("About")}
                     >
                         About
                     </button>
                     <button
-                        className={`p-2 text-xl w-1/2 transition-colors duration-500 ${
-                            selected === "Projects"
-                                ? "bg-gray-900 text-gray-50 delay-110"
-                                : "bg-transparent text-gray-900 delay-110"
-                        }`}
+                        className={`p-1 text-xl w-1/2 transition-colors duration-500 ${selected === "Projects"
+                            ? "bg-gray-900 text-gray-50 delay-110"
+                            : "bg-transparent text-gray-900 delay-110"
+                            }`}
                         onClick={() => setSelected("Projects")}
                     >
                         Projects
                     </button>
                 </div>
             </nav>
-            
+
             {/* Main Content Wrapper */}
             <main className="flex-grow p-6">
                 <Content selected={selected} />
