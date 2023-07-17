@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../firebase';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, User } from 'firebase/auth';
 
 const firestore = getFirestore();
@@ -18,6 +18,7 @@ type Post = {
 const Admin = () => {
     const [posts, setPosts] = useState<Post[]>([]);
     const [user, setUser] = useState<User | null>(null);
+    const [newPost, setNewPost] = useState<Omit<Post, 'id'>>({ title: '', date: '', content: '', image: '', delay: 0 });
 
     // Fetch posts
     const fetchPosts = async () => {
@@ -42,6 +43,23 @@ const Admin = () => {
         }
     };
 
+    // Handle new post form change
+    const handleNewPostChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setNewPost({
+            ...newPost,
+            [event.target.name]: event.target.value
+        });
+    };
+
+    // Handle new post form submit
+    const handleNewPostSubmit = async (event: React.FormEvent) => {
+        event.preventDefault();
+        const postsCollection = collection(firestore, 'posts');
+        await addDoc(postsCollection, newPost);
+        setNewPost({ title: '', date: '', content: '', image: '', delay: 0 });
+        fetchPosts();
+    };
+
     // Listen for auth state changes
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, user => {
@@ -60,15 +78,36 @@ const Admin = () => {
             {user ? (
                 <div>
                     <button onClick={handleSignOut}>Sign Out</button>
+                    <form onSubmit={handleNewPostSubmit}>
+                        <label>
+                            Title:
+                            <input type="text" name="title" value={newPost.title} onChange={handleNewPostChange} required />
+                        </label>
+                        <label>
+                            Date:
+                            <input type="text" name="date" value={newPost.date} onChange={handleNewPostChange} required />
+                        </label>
+                        <label>
+                            Content:
+                            <textarea name="content" value={newPost.content} onChange={handleNewPostChange} required />
+                        </label>
+                        <label>
+                            Image URL:
+                            <input type="text" name="image" value={newPost.image} onChange={handleNewPostChange} required />
+                        </label>
+                        <label>
+                            Delay:
+                            <input type="number" name="delay" value={newPost.delay} onChange={handleNewPostChange} required />
+                        </label>
+                        <button type="submit">Submit</button>
+                    </form>
                     {posts.map(post => (
                         <div key={post.id}>
                             <h2>{post.title}</h2>
                             <p>{post.date}</p>
                             <p>{post.content}</p>
-                            {/* delete buttons here */}
                         </div>
                     ))}
-                    {/* creating new post here */}
                 </div>
             ) : (
                 <button onClick={handleSignIn}>Sign In</button>
