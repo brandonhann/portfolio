@@ -1,26 +1,12 @@
-import React, { useState } from "react";
-import { Route, Routes, useLocation } from 'react-router-dom';
+import React from "react";
+import { Route, Routes, useLocation, Link } from 'react-router-dom';
 import Blog from "./components/Blog";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Admin from "./components/Admin";
 import "./index.css";
 
-const Content = ({ selected }: { selected: string }) => {
-    switch (selected) {
-        case "Blog":
-            return <div className="transition-all duration-500"><Blog /></div>;
-        case "About":
-            return <div className="transition-all duration-500"><About /></div>;
-        case "Projects":
-            return <div className="transition-all duration-500"><Projects /></div>;
-        default:
-            return <div className="transition-all duration-500"><About /></div>;
-    }
-};
-
 const App: React.FC = () => {
-    const [selected, setSelected] = useState("About");
     const location = useLocation();
     const isAdminRoute = location.pathname === "/admin";
 
@@ -30,33 +16,33 @@ const App: React.FC = () => {
             {!isAdminRoute && (
                 <nav>
                     <div className="flex justify-around">
-                        <button
-                            className={`p-1 text-xl w-1/2 transition-colors duration-500 ${selected === "Blog"
+                        <Link
+                            to="/blog"
+                            className={`text-center p-1 text-xl w-1/3 transition-colors duration-500 ${location.pathname === "/blog"
                                 ? "bg-gray-900 text-gray-50 delay-110"
                                 : "bg-transparent text-gray-900 delay-110"
                                 }`}
-                            onClick={() => setSelected("Blog")}
                         >
                             Blog
-                        </button>
-                        <button
-                            className={`p-1 text-xl w-1/2 transition-colors duration-500 ${selected === "About"
+                        </Link>
+                        <Link
+                            to="/"
+                            className={`text-center p-1 text-xl w-1/3 transition-colors duration-500 ${location.pathname === "/"
                                 ? "bg-gray-900 text-gray-50 delay-110"
                                 : "bg-transparent text-gray-900 delay-110"
                                 }`}
-                            onClick={() => setSelected("About")}
                         >
                             About
-                        </button>
-                        <button
-                            className={`p-1 text-xl w-1/2 transition-colors duration-500 ${selected === "Projects"
+                        </Link>
+                        <Link
+                            to="/projects"
+                            className={`text-center p-1 text-xl w-1/3 transition-colors duration-500 ${location.pathname === "/projects"
                                 ? "bg-gray-900 text-gray-50 delay-110"
                                 : "bg-transparent text-gray-900 delay-110"
                                 }`}
-                            onClick={() => setSelected("Projects")}
                         >
                             Projects
-                        </button>
+                        </Link>
                     </div>
                 </nav>
             )}
@@ -65,7 +51,10 @@ const App: React.FC = () => {
             <main className="flex-grow p-6">
                 <Routes>
                     <Route path="/admin" element={<Admin />} />
-                    <Route path="/*" element={<Content selected={selected} />} />
+                    <Route path="/blog" element={<Blog />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/projects" element={<Projects />} />
+                    <Route path="/" element={<About />} />
                 </Routes>
             </main>
         </div>

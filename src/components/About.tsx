@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faYoutube, faGithub, faLinkedin, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faYoutube, faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 const About = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -57,14 +57,6 @@ const About = () => {
                     rel="noopener noreferrer"
                 >
                     <FontAwesomeIcon icon={faGithub} />
-                </a>
-                <a
-                    href="https://instagram.com/hanb"
-                    className="text-pink-500 transform transition-transform duration-500 hover:scale-125"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <FontAwesomeIcon icon={faInstagram} />
                 </a>
                 <a
                     href="https://linkedin.com/in/brandonhann"
