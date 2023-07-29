@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../firebase';
 import { getFirestore, collection, query, orderBy, startAfter, limit, getDocs, QueryDocumentSnapshot } from 'firebase/firestore';
 
@@ -15,7 +16,12 @@ type BlogPostProps = Post & {
     delay: number;
 };
 
-const BlogPost = ({ title, date, text, image, delay }: BlogPostProps) => {
+function formatDate(isoString: string): string {
+    const date = new Date(isoString);
+    return date.toLocaleDateString();
+}
+
+export const BlogPost = ({ title, date, text, image, delay }: BlogPostProps) => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -26,11 +32,15 @@ const BlogPost = ({ title, date, text, image, delay }: BlogPostProps) => {
         return () => clearTimeout(timer);
     }, [delay]);
 
+    const postTitleURL = encodeURIComponent(title.replace(/ /g, '-'));
+
     return (
-        <article className={`w-full md:w-3/4 m-auto rounded-lg border border-gray-300 p-4 bg-gray-100 transition-all duration-500 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+        <article className={`w-3/4 m-auto rounded-lg border border-gray-300 p-4 bg-gray-100 transition-all duration-500 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
             <header>
-                <h2 className="text-xl font-semibold mt-4">{title}</h2>
-                <time dateTime={date} className="text-sm text-gray-500">{date}</time>
+                <Link to={`/blog/${postTitleURL}`}>
+                    <h2 className="text-xl font-semibold mt-4">{title}</h2>
+                </Link>
+                <time dateTime={date} className="text-sm text-gray-500">{formatDate(date)}</time>
             </header>
             <div className="flex flex-wrap">
                 {image &&

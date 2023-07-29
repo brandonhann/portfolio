@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes, useLocation, Link } from 'react-router-dom';
 import Blog from "./components/Blog";
+import BlogPostPage from "./components/BlogPostPage";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Admin from "./components/Admin";
@@ -52,6 +53,7 @@ const App: React.FC = () => {
                 <Routes>
                     <Route path="/admin" element={<Admin />} />
                     <Route path="/blog" element={<Blog />} />
+                    <Route path="/blog/:title" element={<BlogPostPage />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/projects" element={<Projects />} />
                     <Route path="/" element={<About />} />
