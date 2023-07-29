@@ -33,10 +33,17 @@ const About = () => {
             </div>
 
             {/* Skills Section */}
-            <div className="p-4 w-full md:w-2/3 border-b border-gray-300">
+            <div className="p-4 w-full md:w-2/3 border-gray-300">
                 <h2 className="text-2xl font-bold mb-2">My Skills</h2>
                 <p className="text-gray-700 text-lg">
                     Typescript, JavaScript, Tailwind, Python, Solidity, Java, C++, Lua, PHP, SQL, Git
+                </p>
+            </div>
+
+            {/* Repository Section */}
+            <div className="p-4 w-full md:w-2/3 border-b border-gray-300">
+                <p className="text-gray-700 text-lg">
+                    I've made my portfolio's code public on GitHub. Feel free to check it out <a className='text-blue-500 hover:underline' href='https://github.com/brandonhann/portfolio' target='_blank' rel='noreferrer'>here</a>!
                 </p>
             </div>
 
