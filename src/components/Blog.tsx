@@ -35,20 +35,20 @@ export const BlogPost = ({ title, date, text, image, delay }: BlogPostProps) => 
     const postTitleURL = encodeURIComponent(title.replace(/ /g, '-'));
 
     return (
-        <article className={`w-3/4 m-auto rounded-lg border border-gray-300 p-4 bg-gray-100 transition-all duration-500 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
-            <header>
+        <article className={`w-full md:w-3/4 m-auto rounded-lg border border-gray-300 p-4 bg-gray-100 transition-all duration-500 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+            <header className='flex flex-col items-start'>
                 <Link to={`/blog/${postTitleURL}`}>
-                    <h2 className="text-xl font-semibold mt-4">{title}</h2>
+                    <h2 className="text-xl font-semibold mt-4 hover:underline">{title}</h2>
                 </Link>
                 <time dateTime={date} className="text-sm text-gray-500">{formatDate(date)}</time>
             </header>
-            <div className="flex flex-wrap">
+            <div className="mt-4">
                 {image &&
-                    <figure>
-                        <img className="w-48 h-48 object-cover rounded-md mr-4" src={image} alt={title} />
-                        <figcaption>{title}</figcaption>
+                    <figure style={{ float: 'left' }}>
+                        <img className="w-80 h-80 object-cover rounded-md mr-0 md:mr-4 mb-4 md:mb-2 border border-gray-300" src={image} alt={title} />
+                        <figcaption className="hidden">{title}</figcaption>
                     </figure>}
-                <p className="mt-2 text-gray-700">{text}</p>
+                <p className="text-gray-700" style={{ whiteSpace: 'pre-wrap' }}>{text}</p>
             </div>
         </article>
     );

@@ -29,7 +29,6 @@ const Projects = () => {
         { title: 'Project 4', delay: 800, repoLink: '#', imageLink: 'https://via.placeholder.com/150', desc: 'Description' },
         { title: 'Project 4', delay: 800, repoLink: '#', imageLink: 'https://via.placeholder.com/150', desc: 'Description' },
         { title: 'Project 5', delay: 1000, repoLink: '#', imageLink: 'https://via.placeholder.com/150', desc: 'Description' },
-        { title: 'Project 6', delay: 1200, repoLink: '#', imageLink: 'https://via.placeholder.com/150', desc: 'Description' },
     ];
 
     return (

@@ -136,7 +136,7 @@ const Admin = () => {
                             <h2 className="font-bold text-xl mb-2">{post.title}</h2>
                             <p className="mb-2">{post.date}</p>
                             {post && post.image && <img src={post.image} alt="" className="mb-2" />}
-                            {post && post.text && <p>{post.text}</p>}
+                            {post && post.text && <p style={{ whiteSpace: 'pre-wrap' }}>{post.text}</p>}
                         </div>
                     ))}
                     {initialLoad && hasMore && <button onClick={() => fetchPosts(lastDoc)} className="bg-blue-500 text-white rounded px-4 py-2">Load More</button>}
