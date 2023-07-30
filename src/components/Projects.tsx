@@ -23,7 +23,7 @@ const ProjectItem = ({ title, desc, delay, repoLink, imageLink }: { title: strin
 
 const Projects = () => {
     const projects = [
-        { title: 'MintyGen', delay: 200, repoLink: 'https://github.com/brandonhann/mintygen-engine', imageLink: 'https://via.placeholder.com/150', desc: "MintyGen is an innovative NFT generator app that allows you to easily create unique and stunning NFTs. With our user-friendly web compiler and powerful engine, you can customize various aspects of your NFTs with just a few clicks. We offer a purchasable license key on the Fantom network for a quick and secure experience." },
+        { title: 'MintyGen', delay: 200, repoLink: 'https://github.com/brandonhann/mintygen-engine', imageLink: '/images/mintygen.jpg', desc: "MintyGen is an innovative NFT generator app that allows you to easily create unique and stunning NFTs. With our user-friendly web compiler and powerful engine, you can customize various aspects of your NFTs with just a few clicks. We offer a purchasable license key on the Fantom network for a quick and secure experience." },
         { title: 'Project 2', delay: 400, repoLink: '#', imageLink: 'https://via.placeholder.com/150', desc: 'Description' },
         { title: 'Project 3', delay: 600, repoLink: '#', imageLink: 'https://via.placeholder.com/150', desc: 'Description' },
         { title: 'Project 4', delay: 800, repoLink: '#', imageLink: 'https://via.placeholder.com/150', desc: 'Description' },

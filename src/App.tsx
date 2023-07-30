@@ -14,7 +14,6 @@ const App: React.FC = () => {
     const isAdminRoute = location.pathname === "/admin";
 
     return (
-        /* Navigation */
         <div className="bg flex flex-col min-h-screen">
             {!isAdminRoute && (
                 <nav>
@@ -50,8 +49,7 @@ const App: React.FC = () => {
                 </nav>
             )}
 
-            {/* Main Content Wrapper */}
-            <main className="flex-grow p-6">
+            <main className="flex-grow p-2 md:p-6">
                 <Routes>
                     <Route path="/admin" element={<Admin />} />
                     <Route path="/blog" element={<Blog />} />

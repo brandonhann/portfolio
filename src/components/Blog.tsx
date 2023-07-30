@@ -40,9 +40,10 @@ export const BlogPost = ({ title, date, text, image, delay }: BlogPostProps) => 
                 <Link to={`/blog/${postTitleURL}`}>
                     <h2 className="text-xl font-semibold mt-4 hover:underline">{title}</h2>
                 </Link>
-                <time dateTime={date} className="text-sm text-gray-500">{formatDate(date)}</time>
+                <h3 className="text-md font-medium  mt-1">By Brandon Hann</h3>
+                <time dateTime={date} className="text-sm text-gray-500 mt-1">{formatDate(date)}</time>
             </header>
-            <div className="mt-4">
+            <div className="my-4">
                 {image &&
                     <figure style={{ float: 'left' }}>
                         <img className="w-80 h-80 object-cover rounded-md mr-0 md:mr-4 mb-4 md:mb-2 border border-gray-300" src={image} alt={title} />
