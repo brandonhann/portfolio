@@ -1,5 +1,7 @@
 import React from "react";
 import { Route, Routes, useLocation, Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBlog, faUser, faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
 import Blog from "./components/Blog";
 import BlogPostPage from "./components/BlogPostPage";
 import About from "./components/About";
@@ -24,7 +26,7 @@ const App: React.FC = () => {
                                 : "bg-transparent text-gray-900 delay-110"
                                 }`}
                         >
-                            Blog
+                            <FontAwesomeIcon icon={faBlog} /> Blog
                         </Link>
                         <Link
                             to="/"
@@ -33,7 +35,7 @@ const App: React.FC = () => {
                                 : "bg-transparent text-gray-900 delay-110"
                                 }`}
                         >
-                            About
+                            <FontAwesomeIcon icon={faUser} /> About
                         </Link>
                         <Link
                             to="/projects"
@@ -42,7 +44,7 @@ const App: React.FC = () => {
                                 : "bg-transparent text-gray-900 delay-110"
                                 }`}
                         >
-                            Projects
+                            <FontAwesomeIcon icon={faProjectDiagram} /> Projects
                         </Link>
                     </div>
                 </nav>

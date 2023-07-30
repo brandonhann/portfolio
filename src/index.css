@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap');
 
 * {
     font-family: 'Prompt', sans-serif;
@@ -14,4 +15,8 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.namefont {
+    font-family: 'Mrs Saint Delafield', cursive;
 }

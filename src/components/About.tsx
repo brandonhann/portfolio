@@ -15,16 +15,33 @@ const About = () => {
 
     return (
         <div className={`flex flex-col items-center justify-center py-5 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            {/* Picture Section */}
-            <div className="p-4">
+            <div className="flex sm:hidden items-center text-center space-x-4 mb-4">
+                <h1 className="namefont text-4xl font-bold text-gray-700">Brandon</h1>
+                <h1 className="namefont text-4xl font-bold text-gray-700">Hann</h1>
+            </div>
+            <div className="sm:hidden flex items-center text-center space-x-4">
                 <img
-                    className="mx-auto h-40 w-40 rounded-full border border-gray-500 shadow-lg transform transition-transform duration-500 hover:scale-110"
+                    className="mx-auto h-60 w-60 rounded-full border border-gray-500 shadow-lg transform transition-transform duration-500 hover:scale-110"
                     src="/me.jpg"
-                    alt="Your Name"
+                    alt="Me!"
                 />
             </div>
+            <div className="hidden sm:grid sm:grid-cols-3 items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <div className="text-center sm:text-left justify-self-start">
+                    <h1 className="namefont text-4xl sm:text-6xl font-bold text-gray-700">Brandon</h1>
+                </div>
+                <div>
+                    <img
+                        className="mx-auto h-40 w-40 rounded-full border border-gray-500 shadow-lg transform transition-transform duration-500 hover:scale-110"
+                        src="/me.jpg"
+                        alt="Me!"
+                    />
+                </div>
+                <div className="text-center sm:text-right justify-self-center">
+                    <h1 className="namefont text-4xl sm:text-6xl font-bold text-gray-700">Hann</h1>
+                </div>
+            </div>
 
-            {/* About Me Section */}
             <div className="p-4 w-full md:w-2/3">
                 <h2 className="text-2xl font-bold mb-2">About Me</h2>
                 <p className="text-gray-700 text-lg">
@@ -32,7 +49,6 @@ const About = () => {
                 </p>
             </div>
 
-            {/* Skills Section */}
             <div className="p-4 w-full md:w-2/3 border-gray-300">
                 <h2 className="text-2xl font-bold mb-2">My Skills</h2>
                 <p className="text-gray-700 text-lg">
@@ -40,14 +56,12 @@ const About = () => {
                 </p>
             </div>
 
-            {/* Repository Section */}
             <div className="p-4 w-full md:w-2/3 border-b border-gray-300">
                 <p className="text-gray-700 text-lg">
                     I've made my portfolio's code public on GitHub. Feel free to check it out <a className='text-blue-500 hover:underline' href='https://github.com/brandonhann/portfolio' target='_blank' rel='noreferrer'>here</a>!
                 </p>
             </div>
 
-            {/* Social Links Section */}
             <div className="flex p-4 space-x-4 text-xl">
                 <a
                     href="https://www.youtube.com/brandon_hann"
