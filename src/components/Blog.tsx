@@ -43,10 +43,10 @@ export const BlogPost = ({ title, date, text, image, delay }: BlogPostProps) => 
                 <h3 className="text-md font-medium  mt-1">By Brandon Hann</h3>
                 <time dateTime={date} className="text-sm text-gray-500 mt-1">{formatDate(date)}</time>
             </header>
-            <div className="my-4 flex flex-col md:flex-row">
+            <div className="my-4">
                 {image &&
-                    <figure className="mx-auto md:mx-0">
-                        <img className="w-80 h-80 object-cover rounded-md border border-gray-300 mb-4 md:mr-4 md:mb-2" src={image} alt={title} />
+                    <figure className="float-none md:float-left mx-auto md:mx-0 mb-4 md:mb-2 md:mr-4">
+                        <img className="w-full h-80 md:w-80 md:h-80 object-cover rounded-md border border-gray-300" src={image} alt={title} />
                         <figcaption className="hidden">{title}</figcaption>
                     </figure>}
                 <p className="text-gray-700" style={{ whiteSpace: 'pre-wrap' }}>{text}</p>
