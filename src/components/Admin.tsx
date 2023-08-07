@@ -16,6 +16,11 @@ type Post = {
     text: string;
 };
 
+function formatDate(isoString: string): string {
+    const date = new Date(isoString);
+    return date.toLocaleDateString();
+}
+
 const Admin = () => {
     const [posts, setPosts] = useState<Post[]>([]);
     const [user, setUser] = useState<User | null>(null);
@@ -132,12 +137,20 @@ const Admin = () => {
                         <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
                     </form>
                     {posts.map(post => (
-                        <div key={post.id} className="mb-8">
-                            <h2 className="font-bold text-xl mb-2">{post.title}</h2>
-                            <p className="mb-2">{post.date}</p>
-                            {post && post.image && <img src={post.image} alt="" className="mb-2" />}
-                            {post && post.text && <p style={{ whiteSpace: 'pre-wrap' }}>{post.text}</p>}
-                        </div>
+                        <article className="w-full md:w-3/4 m-auto rounded-lg border border-gray-300 p-4 bg-gray-100 mb-8">
+                            <header className='flex flex-col items-start'>
+                                <h2 className="text-xl font-semibold mt-4">{post.title}</h2>
+                                <time dateTime={post.date} className="text-sm text-gray-500 mt-1">{formatDate(post.date)}</time>
+                            </header>
+                            <div className="my-4">
+                                {post.image &&
+                                    <figure className="float-none md:float-left mx-auto md:mx-0 mb-4 md:mb-2 md:mr-4">
+                                        <img className="w-full h-80 md:w-80 md:h-80 object-cover rounded-md border border-gray-300" src={post.image} alt={post.title} />
+                                        <figcaption className="hidden">{post.title}</figcaption>
+                                    </figure>}
+                                <p className="text-gray-700" style={{ whiteSpace: 'pre-wrap' }}>{post.text}</p>
+                            </div>
+                        </article>
                     ))}
                     {initialLoad && hasMore && <button onClick={() => fetchPosts(lastDoc)} className="bg-blue-500 text-white rounded px-4 py-2">Load More</button>}
                 </div>
